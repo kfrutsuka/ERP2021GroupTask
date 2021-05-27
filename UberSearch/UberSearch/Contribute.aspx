@@ -25,21 +25,28 @@
                 <asp:TextBox ID="TextBoxShopName" runat="server"></asp:TextBox>
                 <br />
                 地域
-                <asp:DropDownList ID="DropDownListArea" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownListArea" runat="server">
+                    <asp:ListItem>埼玉</asp:ListItem>
+                    <asp:ListItem>大阪</asp:ListItem>
+                </asp:DropDownList>
                 <br />
                 カテゴリ
-                <asp:DropDownList ID="DropDownListCategory" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownListCategory" runat="server">
+                    <asp:ListItem>和食</asp:ListItem>
+                    <asp:ListItem>洋食</asp:ListItem>
+                </asp:DropDownList>
                 <br />
                 URL
                 <asp:TextBox ID="TextBoxURL" runat="server"></asp:TextBox>
                 <br />
                 画像
-                <asp:FileUpload ID="FileUploadImages" runat="server" />
+                <input id="PictUpload" type="file"  runat="server" />
+                <asp:Label ID="LabelImage" runat="server" Text="Label"></asp:Label>
                 <br />
                 おすすめポイント
                 <asp:TextBox ID="TextBoxPoint" runat="server"></asp:TextBox>
                 <br />
-                <asp:Button ID="ButtonPost" runat="server" Text="投稿" />
+                <asp:Button ID="ButtonPost" runat="server" Text="投稿" OnClick="ButtonPost_Click" />
             </div>
         </div>
     </form>

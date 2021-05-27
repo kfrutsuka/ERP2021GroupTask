@@ -85,13 +85,22 @@ namespace UberSearch {
         protected global::System.Web.UI.WebControls.TextBox TextBoxURL;
         
         /// <summary>
-        /// FileUploadImages コントロール。
+        /// PictUpload コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUploadImages;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile PictUpload;
+        
+        /// <summary>
+        /// LabelImage コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelImage;
         
         /// <summary>
         /// TextBoxPoint コントロール。
