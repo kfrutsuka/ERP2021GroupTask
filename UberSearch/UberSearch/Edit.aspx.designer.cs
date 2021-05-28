@@ -13,22 +13,40 @@ namespace UberSearch {
     public partial class Edit {
         
         /// <summary>
-        /// form2 コントロール。
+        /// form1 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// LabelShopName コントロール。
+        /// ImageButtonPost コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelShopName;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButtonPost;
+        
+        /// <summary>
+        /// ImageButtonTop コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButtonTop;
+        
+        /// <summary>
+        /// ImageButtonMy コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButtonMy;
         
         /// <summary>
         /// TextBoxShopName コントロール。
@@ -40,49 +58,13 @@ namespace UberSearch {
         protected global::System.Web.UI.WebControls.TextBox TextBoxShopName;
         
         /// <summary>
-        /// ButtonToppage コントロール。
+        /// DropDownListArea コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonToppage;
-        
-        /// <summary>
-        /// LabelRegion コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelRegion;
-        
-        /// <summary>
-        /// DropDownListRegion コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListRegion;
-        
-        /// <summary>
-        /// ButtonMypage コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonMypage;
-        
-        /// <summary>
-        /// LabelCategory コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelCategory;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListArea;
         
         /// <summary>
         /// DropDownListCategory コントロール。
@@ -94,24 +76,6 @@ namespace UberSearch {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListCategory;
         
         /// <summary>
-        /// ButtonPostsList コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonPostsList;
-        
-        /// <summary>
-        /// LabelURL コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelURL;
-        
-        /// <summary>
         /// TextBoxURL コントロール。
         /// </summary>
         /// <remarks>
@@ -121,57 +85,39 @@ namespace UberSearch {
         protected global::System.Web.UI.WebControls.TextBox TextBoxURL;
         
         /// <summary>
-        /// LabelPhoto コントロール。
+        /// PictUpload コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelPhoto;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile PictUpload;
         
         /// <summary>
-        /// TextBoxPhoto コントロール。
+        /// LabelImage コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxPhoto;
+        protected global::System.Web.UI.WebControls.Label LabelImage;
         
         /// <summary>
-        /// LabelRecommendation コントロール。
+        /// TextBoxPoint コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelRecommendation;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPoint;
         
         /// <summary>
-        /// TextBoxRecommendation コントロール。
+        /// ButtonPost コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxRecommendation;
-        
-        /// <summary>
-        /// ButtonUpdate コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonUpdate;
-        
-        /// <summary>
-        /// form1 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Button ButtonPost;
     }
 }

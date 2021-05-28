@@ -17,6 +17,7 @@ namespace UberSearch
 {
     public partial class Contribute : System.Web.UI.Page
     {
+        //private string session = (string)Session["CTB_ID"];
         private int shopId;
         private string shopName;
         private int categoryId;
