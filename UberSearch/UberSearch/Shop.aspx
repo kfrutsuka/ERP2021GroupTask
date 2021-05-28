@@ -11,34 +11,28 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="row">
+        <div class="row mainCenter">
             <div class="col-sm-2 col-md-2">
                 <div class="sub leftSide">
-                    <asp:ImageButton ID="ImageButtonPost" runat="server" ImageUrl="~/images/post_button.png" />
+                    <asp:ImageButton ID="ImageButtonPost" runat="server" ImageUrl="~/images/post_button.png" OnClick="ImageButtonPost_Click" />
                     <br />
-                    <asp:ImageButton ID="ImageButtonTop" runat="server" ImageUrl="~/images/top_button.png" />
+                    <asp:ImageButton ID="ImageButtonTop" runat="server" ImageUrl="~/images/top_button.png" OnClick="ImageButtonTop_Click" />
                     <br />
                     <div class="my">
-                        <asp:ImageButton ID="ImageButtonMy" runat="server" ImageUrl="~/images/mypage_button.png" />
+                        <asp:ImageButton ID="ImageButtonMy" runat="server" ImageUrl="~/images/mypage_button.png" OnClick="ImageButtonMy_Click" />
                     </div>
                 </div>
             </div>
-            <div class="col-sm-10 col-md-10">
-                <div class="sub">
+            <div class="col-sm-6 col-md-6">
+                <div class="subCenter">
                     店舗名
                     <asp:TextBox ID="TextBoxShopName" runat="server"></asp:TextBox>
                     <br />
                     地域
-                    <asp:DropDownList ID="DropDownListArea" runat="server">
-                        <asp:ListItem>埼玉</asp:ListItem>
-                        <asp:ListItem>大阪</asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:TextBox ID="TextBoxArea" runat="server"></asp:TextBox>
                     <br />
                     カテゴリ
-                    <asp:DropDownList ID="DropDownListCategory" runat="server">
-                        <asp:ListItem>和食</asp:ListItem>
-                        <asp:ListItem>洋食</asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:TextBox ID="TextBoxCategory" runat="server"></asp:TextBox>
                     <br />
                     URL
                     <asp:TextBox ID="TextBoxURL" runat="server"></asp:TextBox>
@@ -48,6 +42,9 @@
                     <br />
                 </div>
             </div>
+            <div class="col-sm-4 col-md-4 box-image">
+                <asp:Image ID="ImageShop" runat="server" BorderColor="White" Height="250px" Width="250px" />
+            </div>
         </div>
     </form>
     <style>
@@ -56,6 +53,13 @@
         }
         .leftSide{
             padding-left: 15px;
+        }
+        .subCenter{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .mainCenter{
+            margin-top: 5%;
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

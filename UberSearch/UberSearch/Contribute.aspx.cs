@@ -116,7 +116,7 @@ namespace UberSearch
                     break;
             }
 
-            images = FilePass;
+            images = savedFileName;
             recommendPoint = TextBoxPoint.Text;
             shopId = 1;
             url = TextBoxURL.Text;
@@ -142,6 +142,8 @@ namespace UberSearch
             cn.Open();
             cm.ExecuteNonQuery();
             cn.Close();
+
+            Response.Redirect("TopPage.aspx");
         }
     }
 }

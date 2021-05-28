@@ -58,22 +58,22 @@ namespace UberSearch {
         protected global::System.Web.UI.WebControls.TextBox TextBoxShopName;
         
         /// <summary>
-        /// DropDownListArea コントロール。
+        /// TextBoxArea コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListArea;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxArea;
         
         /// <summary>
-        /// DropDownListCategory コントロール。
+        /// TextBoxCategory コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListCategory;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxCategory;
         
         /// <summary>
         /// TextBoxURL コントロール。
@@ -92,5 +92,14 @@ namespace UberSearch {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxPoint;
+        
+        /// <summary>
+        /// ImageShop コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImageShop;
     }
 }
