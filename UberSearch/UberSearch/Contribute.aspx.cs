@@ -145,5 +145,20 @@ namespace UberSearch
 
             Response.Redirect("TopPage.aspx");
         }
+
+        protected void ImageButtonPost_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Contribute.aspx");
+        }
+
+        protected void ImageButtonTop_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("TopPage.aspx");
+        }
+
+        protected void ImageButtonMy_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("MyPage.aspx");
+        }
     }
 }

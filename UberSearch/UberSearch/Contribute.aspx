@@ -13,12 +13,12 @@
         <div class="row">
             <div class="col-sm-2 col-md-2">
                <div class="sub leftSide">
-                    <asp:ImageButton ID="ImageButtonPost" runat="server" ImageUrl="~/images/post_button.png" />
+                    <asp:ImageButton ID="ImageButtonPost" runat="server" ImageUrl="~/images/post_button.png" OnClick="ImageButtonPost_Click" />
                     <br />
-                    <asp:ImageButton ID="ImageButtonTop" runat="server" ImageUrl="~/images/top_button.png" />
+                    <asp:ImageButton ID="ImageButtonTop" runat="server" ImageUrl="~/images/top_button.png" OnClick="ImageButtonTop_Click" />
                     <br />
                     <div class="my">
-                        <asp:ImageButton ID="ImageButtonMy" runat="server" ImageUrl="~/images/mypage_button.png" />
+                        <asp:ImageButton ID="ImageButtonMy" runat="server" ImageUrl="~/images/mypage_button.png" OnClick="ImageButtonMy_Click" />
                     </div>
                 </div>
             </div>
