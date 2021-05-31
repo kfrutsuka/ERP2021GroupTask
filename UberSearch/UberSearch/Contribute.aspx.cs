@@ -28,7 +28,14 @@ namespace UberSearch
         private int postId;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //ページ単位で検証する際はコメントアウト必須
+            if (!IsPostBack)
+            {
+                if (Session["CTB_ID"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+            }
         }
 
         private bool CreateInsertCheck(string checkStr)
