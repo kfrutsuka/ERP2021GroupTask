@@ -18,24 +18,24 @@ namespace UberSearch
     public partial class Contribute : System.Web.UI.Page
     {
         //private string session = (string)Session["CTB_ID"];
-        private int shopId;
+        private int shopId = 1;
         private string shopName;
         private int categoryId;
         private int areaId;
         private string url;
         private string images;
         private string recommendPoint;
-        private int postId;
+        private int postId = 8888;
         protected void Page_Load(object sender, EventArgs e)
         {
             //ページ単位で検証する際はコメントアウト必須
-            if (!IsPostBack)
-            {
-                if (Session["CTB_ID"] == null)
-                {
-                    Response.Redirect("Login.aspx");
-                }
-            }
+            //if (!IsPostBack)
+            //{
+            //    if (Session["CTB_ID"] == null)
+            //    {
+            //        Response.Redirect("Login.aspx");
+            //    }
+            //}
         }
 
         private bool CreateInsertCheck(string checkStr)
@@ -63,6 +63,7 @@ namespace UberSearch
 
             foreach (DataRow row in dt.Rows)
             {
+                shopId = int.Parse(dt.Rows[0]["SHOP_ID"].ToString());
                 return true;
             }
 
@@ -83,13 +84,14 @@ namespace UberSearch
             }
             else
             {
-                sb.Append("INSERT INTO [ERP_2021].[dbo].[COMMENT] ");
-                sb.Append("VALUES ");
-                sb.Append("((SELECT(MAX(COMMENT_ID) + 1) FROM COMMENT), @areaId, @categoryId, @images, @recommendPoint, @shopId, @url, @postId)");
-                sb.Append("; ");
                 sb.Append("INSERT INTO [ERP_2021].[dbo].[SHOP] ");
                 sb.Append("VALUES ");
                 sb.Append("((SELECT(MAX(SHOP_ID) + 1) FROM SHOP), @shopName, @categoryId, @areaId, @recommendPoint, @images, @url, @postId)");
+                sb.Append("; ");
+                sb.Append("INSERT INTO [ERP_2021].[dbo].[COMMENT] ");
+                sb.Append("VALUES ");
+                sb.Append("((SELECT(MAX(COMMENT_ID) + 1) FROM COMMENT), @areaId, @categoryId, @images, @recommendPoint, (SELECT(MAX(SHOP_ID)) FROM SHOP), @url, @postId)");
+                sb.Append(";");
             }
             
 
@@ -172,12 +174,11 @@ namespace UberSearch
 
             images = savedFileName;
             recommendPoint = TextBoxPoint.Text;
-            shopId = 1;
             url = TextBoxURL.Text;
             shopName = TextBoxShopName.Text;
 
             //前画面から取得
-            postId = int.Parse(HttpUtility.HtmlEncode(Session["CTB_ID"]));
+            //postId = int.Parse(HttpUtility.HtmlEncode(Session["CTB_ID"]));
 
             string connectString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             SqlConnection cn = new SqlConnection(connectString);
