@@ -178,7 +178,6 @@ namespace UberSearch
 
             //前画面から取得
             postId = int.Parse(HttpUtility.HtmlEncode(Session["CTB_ID"]));
-            postId = 8888;
 
             string connectString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             SqlConnection cn = new SqlConnection(connectString);

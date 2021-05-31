@@ -30,13 +30,13 @@ namespace UberSearch
         protected void Page_Load(object sender, EventArgs e)
         {
             //ページ単位で検証する際はコメントアウト必須
-            //if (!IsPostBack)
-            //{
-            //    if (Session["CTB_ID"] == null)
-            //    {
-            //        Response.Redirect("Login.aspx");
-            //    }
-            //}
+            if (!IsPostBack)
+            {
+                if (Session["CTB_ID"] == null)
+                {
+                   Response.Redirect("Login.aspx");
+                }
+            }
 
             //初期化
             TextBoxShopName.Text = "";
@@ -103,7 +103,7 @@ namespace UberSearch
             SqlCommand cm = new SqlCommand(sb.ToString(), cn);
 
             //前画面からのショップIDを取得
-            //shopId = int.Parse(Request.QueryString["SHOP_ID"]);
+            shopId = int.Parse(Request.QueryString["SHOP_ID"]);
 
             cm.Parameters.Add("@shopId", SqlDbType.Int).Value = shopId;
             //SqlCommand cm = new SqlCommand(sb.ToString(), cn);
