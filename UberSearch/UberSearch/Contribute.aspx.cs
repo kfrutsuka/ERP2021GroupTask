@@ -31,13 +31,56 @@ namespace UberSearch
 
         }
 
+        private bool CreateInsertCheck(string checkStr)
+        {
+            int cnt = 0;
+            string connectString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            SqlConnection cn = new SqlConnection(connectString);
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SELECT");
+            sb.Append(" SHOP_NAME");
+            sb.Append(" FROM");
+            sb.Append(" [ERP_2021].[dbo].[SHOP]");
+            sb.Append(" WHERE");
+            sb.Append(" SHOP_NAME = @shopName");
+
+            SqlCommand cm = new SqlCommand(sb.ToString(), cn);
+
+            cm.Parameters.Add("@shopName", SqlDbType.NVarChar).Value = checkStr;
+
+            SqlDataAdapter da = new SqlDataAdapter(cm);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cm.Dispose();
+            cn.Close();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                return true;
+            }
+
+            return false;
+
+        }
+
         private StringBuilder CreateInsertCommand()
         {
-            StringBuilder sb = new StringBuilder();
+            string checkStr = TextBoxShopName.Text;
 
-            sb.Append("INSERT INTO [ERP_2021].[dbo].[COMMENT] ");
-            sb.Append("VALUES ");
-            sb.Append("((SELECT(MAX(COMMENT_ID) + 1) FROM COMMENT), @areaId, @categoryId, @images, @recommendPoint, @shopId, @url, @postId)");
+            StringBuilder sb = new StringBuilder();
+            if (CreateInsertCheck(checkStr))
+            {
+                sb.Append("INSERT INTO [ERP_2021].[dbo].[COMMENT] ");
+                sb.Append("VALUES ");
+                sb.Append("((SELECT(MAX(COMMENT_ID) + 1) FROM COMMENT), @areaId, @categoryId, @images, @recommendPoint, @shopId, @url, @postId)");
+            }
+            else
+            {
+                sb.Append("INSERT INTO [ERP_2021].[dbo].[SHOP] ");
+                sb.Append("VALUES ");
+                sb.Append("((SELECT(MAX(SHOP_ID) + 1) FROM SHOP), @shopName, @categoryId, @areaId, @recommendPoint, @images, @url, @postId)");
+            }
+            
 
             return sb;
         }
@@ -120,6 +163,10 @@ namespace UberSearch
             recommendPoint = TextBoxPoint.Text;
             shopId = 1;
             url = TextBoxURL.Text;
+            shopName = TextBoxShopName.Text;
+
+            //前画面から取得
+            //postId = int.Parse(HttpUtility.HtmlEncode(Session["CTB_ID"]));
             postId = 8888;
 
             string connectString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
@@ -136,6 +183,7 @@ namespace UberSearch
             cm.Parameters.Add("@shopId", SqlDbType.Int).Value = shopId;
             cm.Parameters.Add("@url", SqlDbType.NVarChar, 500).Value = url;
             cm.Parameters.Add("@postId", SqlDbType.Int).Value = postId;
+            cm.Parameters.Add("@shopName", SqlDbType.NVarChar).Value = shopName;
 
             SqlDataAdapter da = new SqlDataAdapter(cm);
 
