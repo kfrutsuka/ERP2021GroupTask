@@ -29,13 +29,13 @@ namespace UberSearch
         protected void Page_Load(object sender, EventArgs e)
         {
             //ページ単位で検証する際はコメントアウト必須
-            //if (!IsPostBack)
-            //{
-            //    if (Session["CTB_ID"] == null)
-            //    {
-            //        Response.Redirect("Login.aspx");
-            //    }
-            //}
+            if (!IsPostBack)
+            {
+                if (Session["CTB_ID"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+            }
         }
 
         private bool CreateInsertCheck(string checkStr)
@@ -178,7 +178,7 @@ namespace UberSearch
             shopName = TextBoxShopName.Text;
 
             //前画面から取得
-            //postId = int.Parse(HttpUtility.HtmlEncode(Session["CTB_ID"]));
+            postId = int.Parse(HttpUtility.HtmlEncode(Session["CTB_ID"]));
 
             string connectString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             SqlConnection cn = new SqlConnection(connectString);
