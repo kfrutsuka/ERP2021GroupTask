@@ -18,7 +18,7 @@ namespace UberSearch
     public partial class Shop : System.Web.UI.Page
     {
         //ショップIDは前画面から
-        private int shopId = 3;
+        private int shopId = 1;
         private string shopName;
         private int categoryId;
         private int areaId;
@@ -48,12 +48,37 @@ namespace UberSearch
 
             //DBから取得した1行目の値をそれぞれに代入
             TextBoxShopName.Text = (dt.Rows[0]["SHOP_NAME"]).ToString();
-            TextBoxArea.Text = (dt.Rows[0]["AREA_ID"]).ToString();
-            TextBoxCategory.Text = (dt.Rows[0]["CATEGORY_ID"]).ToString();
+            //TextBoxArea.Text = (dt.Rows[0]["AREA_ID"]).ToString();
+            //TextBoxCategory.Text = (dt.Rows[0]["CATEGORY_ID"]).ToString();
             TextBoxURL.Text = (dt.Rows[0]["SHOP_LINK"]).ToString();
-            TextBoxPoint.Text = (dt.Rows[0]["SHOP_RCM"]).ToString();
+            //TextBoxPoint.Text = (dt.Rows[0]["SHOP_RCM"]).ToString();
 
-            string Folder = "./images";
+            switch ((dt.Rows[0]["AREA_ID"]).ToString())
+            {
+                case "1":
+                    TextBoxArea.Text = "埼玉";
+                    break;
+                case "2":
+                    TextBoxArea.Text = "大阪";
+                    break;
+            }
+
+            switch ((dt.Rows[0]["CATEGORY_ID"]).ToString())
+            {
+                case "1":
+                    TextBoxCategory.Text = "和食";
+                    break;
+                case "2":
+                    TextBoxCategory.Text = "洋食";
+                    break;
+            }
+
+            foreach (DataRow row in dt.Rows)
+            {
+                TextBoxPoint.Text = TextBoxPoint.Text + (row["COMMENT"].ToString()) + "\n";
+            }
+
+                string Folder = "./images";
             string ImagePass = Folder + "/" + dt.Rows[0]["SHOP_IMAGE"].ToString();
             ImageShop.ImageUrl = ImagePass;
 
@@ -67,6 +92,10 @@ namespace UberSearch
 
             StringBuilder sb = CreateSelectCommand();
             SqlCommand cm = new SqlCommand(sb.ToString(), cn);
+
+            //前画面からのショップIDを取得
+            //shopId = int.Parse(Request.QueryString["nextPage"]);
+
             cm.Parameters.Add("@shopId", SqlDbType.Int).Value = shopId;
             //SqlCommand cm = new SqlCommand(sb.ToString(), cn);
             //実行結果がdaに入る
@@ -94,15 +123,17 @@ namespace UberSearch
             StringBuilder sb = new StringBuilder();
 
             sb.Append("SELECT ");
-            sb.Append("SHOP_NAME");
-            sb.Append(", CATEGORY_ID");
-            sb.Append(", AREA_ID");
-            sb.Append(", SHOP_RCM");
-            sb.Append(", SHOP_IMAGE");
-            sb.Append(", SHOP_LINK");
-            sb.Append(", CTB_ID");
-            sb.Append(" FROM [ERP_2021].[dbo].[SHOP]");
-            sb.Append(" WHERE [SHOP_ID] = @shopId");
+            sb.Append("S.SHOP_NAME AS SHOP_NAME");
+            sb.Append(", S.CATEGORY_ID AS CATEGORY_ID");
+            sb.Append(", S.AREA_ID AS AREA_ID");
+            sb.Append(", C.COMMENT AS COMMENT");
+            sb.Append(", C.IMAGES AS SHOP_IMAGE");
+            sb.Append(", S.SHOP_LINK AS SHOP_LINK");
+            sb.Append(", S.CTB_ID AS CTB_ID");
+            sb.Append(" FROM [ERP_2021].[dbo].[COMMENT] AS C");
+            sb.Append(" JOIN [ERP_2021].[dbo].[SHOP] AS S");
+            sb.Append(" ON C.SHOP_ID = S.SHOP_ID");
+            sb.Append(" WHERE S.SHOP_ID = @shopId");
 
             return sb;
         }

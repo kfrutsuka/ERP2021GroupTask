@@ -118,7 +118,9 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Shop.aspx" />
     <Content Include="TopPage.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contribute.aspx.cs">
