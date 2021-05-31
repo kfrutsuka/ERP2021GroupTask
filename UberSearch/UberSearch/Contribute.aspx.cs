@@ -83,6 +83,10 @@ namespace UberSearch
             }
             else
             {
+                sb.Append("INSERT INTO [ERP_2021].[dbo].[COMMENT] ");
+                sb.Append("VALUES ");
+                sb.Append("((SELECT(MAX(COMMENT_ID) + 1) FROM COMMENT), @areaId, @categoryId, @images, @recommendPoint, @shopId, @url, @postId)");
+                sb.Append("; ");
                 sb.Append("INSERT INTO [ERP_2021].[dbo].[SHOP] ");
                 sb.Append("VALUES ");
                 sb.Append("((SELECT(MAX(SHOP_ID) + 1) FROM SHOP), @shopName, @categoryId, @areaId, @recommendPoint, @images, @url, @postId)");
@@ -173,7 +177,7 @@ namespace UberSearch
             shopName = TextBoxShopName.Text;
 
             //前画面から取得
-            //postId = int.Parse(HttpUtility.HtmlEncode(Session["CTB_ID"]));
+            postId = int.Parse(HttpUtility.HtmlEncode(Session["CTB_ID"]));
             postId = 8888;
 
             string connectString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;

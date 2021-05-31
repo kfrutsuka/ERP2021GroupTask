@@ -103,7 +103,7 @@ namespace UberSearch
             SqlCommand cm = new SqlCommand(sb.ToString(), cn);
 
             //前画面からのショップIDを取得
-            //shopId = int.Parse(Request.QueryString["nextPage"]);
+            shopId = int.Parse(Request.QueryString["SHOP_ID"]);
 
             cm.Parameters.Add("@shopId", SqlDbType.Int).Value = shopId;
             //SqlCommand cm = new SqlCommand(sb.ToString(), cn);
