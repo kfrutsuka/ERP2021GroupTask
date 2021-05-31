@@ -38,7 +38,7 @@
                     <asp:TextBox ID="TextBoxURL" runat="server"></asp:TextBox>
                     <br />
                     おすすめポイント
-                    <asp:TextBox ID="TextBoxPoint" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxPoint" runat="server" Height="90px" TextMode="MultiLine" Width="300px"></asp:TextBox>
                     <br />
                 </div>
             </div>
